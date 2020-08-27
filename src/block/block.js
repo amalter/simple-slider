@@ -8,10 +8,11 @@
 //  Import CSS.
 import './editor.scss';
 import './style.scss';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-
+const ALLOWED_BLOCKS = [ 'core/image' ];
 /**
  * Register: aa Gutenberg Block.
  *
@@ -27,11 +28,11 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
  */
 registerBlockType( 'cgb/block-simple-slider', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'simple-slider - CGB Block' ), // Block title.
-	icon: 'shield', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	title: __( 'Simple Slider' ), // Block title.
+	icon: 'slides', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: 'layout', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'simple-slider — CGB Block' ),
+		__( 'simple', 'slider', 'carousel' ),
 		__( 'CGB Example' ),
 		__( 'create-guten-block' ),
 	],
@@ -51,18 +52,9 @@ registerBlockType( 'cgb/block-simple-slider', {
 		// Creates a <p class='wp-block-cgb-block-simple-slider'></p>.
 		return (
 			<div className={ props.className }>
-				<p>— Hello from the backend.</p>
-				<p>
-					CGB BLOCK: <code>simple-slider</code> is a new Gutenberg block
-				</p>
-				<p>
-					It was created via{ ' ' }
-					<code>
-						<a href="https://github.com/ahmadawais/create-guten-block">
-							create-guten-block
-						</a>
-					</code>.
-				</p>
+				<InnerBlocks
+					allowedBlocks={ ALLOWED_BLOCKS }
+				/>
 			</div>
 		);
 	},
@@ -81,18 +73,7 @@ registerBlockType( 'cgb/block-simple-slider', {
 	save: ( props ) => {
 		return (
 			<div className={ props.className }>
-				<p>— Hello from the frontend.</p>
-				<p>
-					CGB BLOCK: <code>simple-slider</code> is a new Gutenberg block.
-				</p>
-				<p>
-					It was created via{ ' ' }
-					<code>
-						<a href="https://github.com/ahmadawais/create-guten-block">
-							create-guten-block
-						</a>
-					</code>.
-				</p>
+				<InnerBlocks.Content />
 			</div>
 		);
 	},
