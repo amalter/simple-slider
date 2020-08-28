@@ -5,10 +5,52 @@
  */
 
 .wp-block-cgb-block-simple-slider  {
-  background: $red;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  .aa-simple-slider{
+    figure{
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .tns-controls{
+    position: absolute;
+    top: 34%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    @media screen and (min-width: 500px) {
+      top: 40%;
+    }
+    @media screen and (min-width: 992px) {
+      top: 45%;
+    }
+    button{
+      background-color: #58349b;
+      border-color: transparent;
+      font-size: 24px;
+      color: #fff;
+    }
+  }//tns-controls
+  .tns-nav {
+      text-align: center;
+      button{
+        height: 10px;
+        margin: 2px;
+        padding:5px;
+        border: 1px;
+        border-radius: 50%;
+        border-style: solid;
+        background-color: lightgray;
+        border-color:gray;
+        &.tns-nav-active{
+          background-color: #58349b;
+          border-color: #58349b;
+        }
+      }
+
+  }//tns-nav
 }
