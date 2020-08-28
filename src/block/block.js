@@ -13,6 +13,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const ALLOWED_BLOCKS = [ 'core/image' ];
+
 /**
  * Register: aa Gutenberg Block.
  *
@@ -73,7 +74,9 @@ registerBlockType( 'cgb/block-simple-slider', {
 	save: ( props ) => {
 		return (
 			<div className={ props.className }>
-				<InnerBlocks.Content />
+				<div className="aa-simple-slider">
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		);
 	},

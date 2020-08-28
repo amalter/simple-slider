@@ -88,3 +88,31 @@ function simple_slider_cgb_block_assets() { // phpcs:ignore
 
 // Hook: Block assets.
 add_action( 'init', 'simple_slider_cgb_block_assets' );
+
+function tiny_slider_enqueue() {
+	//check if slider block is on page
+	if ( has_block( 'cgb/block-simple-slider' ) ) {
+		//Enqueue Tiny Slider JS in frontend only
+		if( !is_admin() ) {
+
+			wp_enqueue_style(
+				'tiny-slider',
+				plugins_url('/node_modules/tiny-slider/dist/tiny-slider.css', dirname( __FILE__ ) )
+			);
+
+			wp_enqueue_script(
+				'tiny-slider',
+				plugins_url( '/node_modules/tiny-slider/dist/min/tiny-slider.js', dirname( __FILE__ ) )
+			);
+
+			wp_enqueue_script(
+				'simple-slider',
+				plugins_url( '/assets/simple-slider.js', dirname( __FILE__ ) )
+			);
+
+		}//if frontend
+
+	}//if has_block
+
+}
+add_action( 'enqueue_block_assets', 'tiny_slider_enqueue' );
