@@ -53,6 +53,7 @@ registerBlockType( 'cgb/block-simple-slider', {
 		// Creates a <p class='wp-block-cgb-block-simple-slider'></p>.
 		return (
 			<div className={ props.className }>
+				<h2>Simple Slider Block</h2>
 				<InnerBlocks
 					allowedBlocks={ ALLOWED_BLOCKS }
 				/>
