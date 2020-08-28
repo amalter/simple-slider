@@ -91,7 +91,7 @@ add_action( 'init', 'simple_slider_cgb_block_assets' );
 
 function tiny_slider_enqueue() {
 	//check if slider block is on page
-	if ( has_block( 'cgb/block-simple-slider' ) ) {
+	if ( !class_exists('wp-block-cgb-block-simple-slider') ) {
 		//Enqueue Tiny Slider JS in frontend only
 		if( !is_admin() ) {
 
