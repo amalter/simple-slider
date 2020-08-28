@@ -29,10 +29,10 @@
       top: 45%;
     }
     button{
-      background-color: #58349b;
+      background-color: $purple;
       border-color: transparent;
       font-size: 24px;
-      color: #fff;
+      color: $white;
     }
   }//tns-controls
   .tns-nav {
@@ -44,11 +44,11 @@
         border: 1px;
         border-radius: 50%;
         border-style: solid;
-        background-color: lightgray;
-        border-color:gray;
+        background-color: $lightgray;
+        border-color:$gray;
         &.tns-nav-active{
-          background-color: #58349b;
-          border-color: #58349b;
+          background-color: $purple;
+          border-color: $purple;
         }
       }
 
