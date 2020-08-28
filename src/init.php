@@ -97,12 +97,12 @@ function tiny_slider_enqueue() {
 
 			wp_enqueue_style(
 				'tiny-slider',
-				plugins_url('/node_modules/tiny-slider/dist/tiny-slider.css', dirname( __FILE__ ) )
+				plugins_url('/assets/tiny-slider.css', dirname( __FILE__ ) )
 			);
 
 			wp_enqueue_script(
 				'tiny-slider',
-				plugins_url( '/node_modules/tiny-slider/dist/min/tiny-slider.js', dirname( __FILE__ ) )
+				plugins_url( '/assets/tiny-slider.js', dirname( __FILE__ ) )
 			);
 
 			wp_enqueue_script(
