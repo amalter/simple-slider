@@ -90,8 +90,6 @@ function simple_slider_cgb_block_assets() { // phpcs:ignore
 add_action( 'init', 'simple_slider_cgb_block_assets' );
 
 function tiny_slider_enqueue() {
-	//check if slider block is on page
-	if ( !class_exists('wp-block-cgb-block-simple-slider') ) {
 		//Enqueue Tiny Slider JS in frontend only
 		if( !is_admin() ) {
 
@@ -111,8 +109,5 @@ function tiny_slider_enqueue() {
 			);
 
 		}//if frontend
-
-	}//if has_block
-
 }
-add_action( 'enqueue_block_assets', 'tiny_slider_enqueue' );
+add_action( 'enqueue_block_assets', 'tiny_slider_enqueue', 10 );
